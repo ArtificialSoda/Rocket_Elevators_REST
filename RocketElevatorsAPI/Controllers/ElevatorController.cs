@@ -50,7 +50,7 @@ namespace RocketElevatorsAPI.Controllers
         }
 
         // Get status of specific elevator
-        // http://localhost:5000/api/elevators/{id}
+        // http://localhost:5000/api/elevator/{id}
         // GET: api/elevators/{id}
         [HttpGet("{id}")]
         public string GetStatus(ulong id)

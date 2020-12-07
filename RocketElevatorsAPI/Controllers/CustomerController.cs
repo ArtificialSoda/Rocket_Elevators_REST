@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using System.Data.Common;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -33,6 +35,43 @@ namespace RocketElevatorsAPI.Controllers
             System.Console.WriteLine(customers);
             return customers.ToList();
 
+        }
+
+        [HttpGet("{id}")]
+        public ulong GetId(ulong id)
+        {
+            var customers = _context.Customers.Where(customer => customer.Id == id).ToList();
+            return customers[0].Id;
+        }
+
+        [HttpGet("{id}/email")]
+        public string GetEmail(ulong id)
+        {
+
+            var customers = _context.Customers.Where(customer => customer.Id == id).ToList();
+            return customers[0].EmailCompanyContact;
+
+        }
+
+        [HttpGet("{customer_id}/batteries")]
+        public IEnumerable<Battery> GetCustomerBatteries(ulong customer_id)
+        {
+            var batteries = _context.Batteries.Where(battery => battery.Customer_Id == customer_id).ToList();
+            return batteries;
+        }
+
+        [HttpGet("{customer_id}/columns")]
+        public IEnumerable<Column> GetCustomerColumns(ulong customer_id)
+        {
+            var columns = _context.Columns.Where(column => column.Customer_Id == customer_id).ToList();
+            return columns;
+        }
+
+        [HttpGet("{customer_id}/elevators")]
+        public IEnumerable<Elevator> GetCustomerElevators(ulong customer_id)
+        {
+            var elevators = _context.Elevators.Where(elevator => elevator.Customer_Id == customer_id).ToList();
+            return elevators;
         }
     }
 }

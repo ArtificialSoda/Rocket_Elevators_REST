@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/home/god/.dotnet/store/|arch|/|tfm|",
-      "/home/god/.nuget/packages"
+      "C:\\Users\\dimit\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\dimit\\.nuget\\packages"
     ]
   }
 }
